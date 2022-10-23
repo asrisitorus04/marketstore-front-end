@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      quicksand: "quicksand",
+    },
     extend: {
       colors: {
-        'primary': '#358600',
-        'secondary': '#9EE37D',
-        'primary-red': '#F41111',
+        primary: "#358600",
+        secondary: "#9EE37D",
+        "primary-red": "#F41111",
       },
     },
   },
@@ -24,4 +24,4 @@ module.exports = {
     prefix: "",
     darkTheme: "white",
   },
-}
+};
