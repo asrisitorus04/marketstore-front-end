@@ -1,13 +1,14 @@
-import React from 'react'
-import { WithRouter } from '../utils/Navigation'
-import Layout from '../components/Layout'
+import React from "react";
+import { WithRouter } from "../utils/Navigation";
+import Layout from "../components/Layout";
 
 const CheckoutPage = () => {
+  useTitle("Checkout");
   return (
     <Layout>
-        <div>CheckoutPage</div>
+      <div>CheckoutPage</div>
     </Layout>
-  )
-}
+  );
+};
 
-export default WithRouter(CheckoutPage)
+export default WithRouter(CheckoutPage);
