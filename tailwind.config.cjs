@@ -13,6 +13,11 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend:{
+      scale:["active",]
+    }
+  },
   plugins: [require("daisyui")],
   daisyui: {
     styled: true,

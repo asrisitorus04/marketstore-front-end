@@ -6,9 +6,11 @@ import { useTitle } from "../utils/hooks/useTitle";
 const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (
+    <>
     <Layout>
-      <div>LandingPage</div>
+      <div>Landing Page</div>
     </Layout>
+    </>
   );
 };
 
