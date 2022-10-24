@@ -7,10 +7,11 @@ import AnonymNavbar from "../components/AnonymNavbar"
 const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (
-    <Layout>
-      <AnonymNavbar></AnonymNavbar>
-      <div>LandingPage</div>
-    </Layout>
+    <>
+      <Layout>
+        <div>Landing Page</div>
+      </Layout>
+    </>
   );
 };
 
