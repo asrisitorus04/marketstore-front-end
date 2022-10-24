@@ -6,3 +6,47 @@ body {
   margin: 0;
   font-family: "quicksand";
 }
+
+.add {
+    width: 166px;
+    height: 40px;
+    left: 20px;
+    border-radius: 5px; 
+}
+
+.text-add{
+    width: 114px;
+    height: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.checkout {
+    width: 166px;
+    height: 40px;
+    left: 20px;
+    border-radius: 5px;
+}
+
+.text-checkout{
+    width: 114px;
+    height: 25px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.login{
+    height: 37px;
+    left: 10px;
+    
+}
+
+.text-login{
+    font-style: normal;
+    font-size: 20px;
+    line-height: 17px;
+}
