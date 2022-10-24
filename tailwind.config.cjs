@@ -9,14 +9,14 @@ module.exports = {
       colors: {
         primary: "#358600",
         secondary: "#9EE37D",
-        "primary-red": "#F41111",
+        primary_red: "#F41111",
       },
     },
   },
   variants: {
-    extend:{
-      scale:["active",]
-    }
+    extend: {
+      scale: ["active"],
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {

@@ -7,9 +7,9 @@ const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (
     <>
-    <Layout>
-      <div>Landing Page</div>
-    </Layout>
+      <Layout>
+        <div>Landing Page</div>
+      </Layout>
     </>
   );
 };
