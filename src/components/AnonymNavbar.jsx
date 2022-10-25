@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonNavbar from "./buttons/ButtonNavbar";
 import LoginForm from "./forms/LoginForm";
 
 const NavbarAnonym = () => {
   return (
-    <div>
-      <div className="drawer drawer-end">
-        <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+    // <div className="sticky top-0">
+    //   <div className="drawer drawer-end absolute">
+    //     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+    //     <div className="drawer-content">
           <div className="navbar bg-white px-10 py-3 flex justify-between sticky top-0 z-10 shadow-lg">
             <div>
               <Link to="/">
@@ -45,22 +44,20 @@ const NavbarAnonym = () => {
                 Cart
               </Link>
               <label
-                htmlFor="my-drawer-4"
+                htmlFor="my-modal-3"
                 className="px-6 py-1 font-bold border-2 rounded-lg border-primary bg-primary text-white hover:bg-white hover:text-primary cursor-pointer"
               >
                 Login
               </label>
             </div>
           </div>
-        </div>
-        <div className="drawer-side">
-          <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-
-          {/* <!-- Sidebar content here --> */}
-          <LoginForm />
-        </div>
-      </div>
-    </div>
+    //     </div>
+    //     <div className="drawer-side">
+    //       <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+    //       <LoginForm />
+    //     </div>
+    //   </div>
+    // </div>
   );
 };
 
