@@ -1,10 +1,56 @@
 import React from 'react'
+import { WithRouter } from '../../utils/navigation'
+import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import {apiRequest} from '../../utils/apiRequest'
+
 import Input from './Input'
 import { Signup } from '../buttons/ButtonSubmit'
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
+    const navigate = useNavigate()
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [disabled, setDisabled] = useState(true)
+    const [loading, setLoading] = useState(false)
+
+    useEffect(()=> {
+        if (userName && email && password) {
+            setDisabled(false) 
+        } else {
+            setDisabled(true)
+        }
+    }, [email, password, userName])
+
+    const handleSubmit = async (e) => {
+        console.log("test")
+        setLoading(true)
+        e.preventDefault()
+        const body = {
+            username : userName,
+            email,
+            password,
+        }
+        apiRequest("register", "post", body)
+        .then((res) => {
+            const { message, data} = res
+            if (data) {
+                navigate("/")
+            } 
+            alert(message)
+        })
+        .catch((err) => {
+            const {message} = err.response.data
+            alert(message)
+        })
+        .finally(() => {
+            setLoading(false)
+        })
+    } 
+
   return (
-    <div className='w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10'>
+    <div className='w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10' onSubmit={(e) => handleSubmit(e)}>
         <div className='flex flex-row justify-between'>
             <h1 className='text-2xl font-semibold'>Sign Up</h1>
             <label htmlFor='my-modal-4' className='cursor-pointer'>
@@ -15,24 +61,42 @@ const RegisterForm = () => {
         </div>
         <div>
             <h1 className='text-2md font-semibold'>Username</h1>
-            <Input/>
+            <Input 
+            id="Input Username"
+            placeholder="Input Username"
+            type="text"
+            onChange={(e) => setUserName(e.target.value)}
+            />
         </div>
         <div>
             <h1 className='text-2md font-semibold'>Email</h1>
-            <Input/>
+            <Input
+            id="Input Email"
+            placeholder="Input Email"
+            type="text"
+            onChange={(e) => setEmail(e.target.value)}
+            />
         </div>
         <div>
             <h1 className='text-2md font-semibold'>Password</h1>
-            <Input/>
+            <Input
+            id="Input Password"
+            placeholder="Input Password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+            />
         </div>
         <div className='flex flex-col gap-4 items-center text-[13px] text-center'>
             <div>Have an account?  
             <label htmlFor='my-modal-4' className='text-primary font-semibold hover:underline cursor-pointer'> Login Now!</label>
             </div>
-            <Signup></Signup>
+            <Signup
+            onClicked={(e) => handleSubmit(e)}
+            loading={loading || disabled}
+            />
         </div>
     </div>
   )
 }
 
-export default RegisterForm
+export default WithRouter(RegisterForm)

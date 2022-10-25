@@ -10,6 +10,8 @@ import {ProductCard} from "../components/Card"
 import Footer from "..//components/Footer"
 import Pagination from "../components/Pagination";
 
+
+
 const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (

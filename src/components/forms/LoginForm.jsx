@@ -1,11 +1,54 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Input from "./Input";
 import { Login } from "../buttons/ButtonSubmit";
-import RegisterForm from "../forms/RegisterForm"
+import { WithRouter } from "../../utils/navigation";
+import {apiRequest} from '../../utils/apiRequest'
+import {handleAuth} from '../../utils/reducers/reducer'
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [disabled, setDisabled] = useState(true)
+
+  useEffect(() => {
+    if (email && password) {
+      setDisabled(false) 
+    } else {
+      setDisabled(true)
+    }
+  }, [email,password])
+    
+  const handleSubmit = async (e) => {
+    setLoading(true)
+    e.preventDefault()
+    const body = {
+      email,
+      password
+    }
+    apiRequest("login", "post", body)
+    .then((res) => {
+      const {token} = res.data
+      localStorage.setItem("token ", token)
+      dispatch(handleAuth(true))
+      navigate("/home")
+    })
+    .catch((err) => {
+      const {data} = err.response
+      alert(data.message)
+    })
+    .finally(() => {
+      setLoading(false)
+    })
+  }
+
   return (
-    <div className="w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10">
+    <div className="w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10"
+    onSubmit={(e) => handleSubmit(e)}>
       <div className="flex flex-row justify-between">
         <h1 className="text-2xl font-semibold">Login</h1>
         <label htmlFor="my-modal-3" className="cursor-pointer">
@@ -27,11 +70,20 @@ const LoginForm = () => {
       </div>
       <div>
         <h1 className="text-2md font-semibold">Username</h1>
-        <Input />
+        <Input
+        id="Input Username Lgn"
+        placeholder="Input Username"
+        type="text"
+        onChange={(e) => setUserName(e.target.value)}
+        />
       </div>
       <div>
         <h1 className="text-2md font-semibold">Password</h1>
-        <Input />
+        <Input
+        id="Input Password Lgn"
+        placeholder="Input Password"
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}/>
       </div>
       <div className="flex flex-col gap-4 items-center text-[13px] text-center">
         <div>
@@ -42,7 +94,9 @@ const LoginForm = () => {
             Sign Up Now!
           </label>
         </div>
-        <Login />
+        <Login 
+        onClicked={(e) => handleSubmit(e)}
+        loading={loading || disabled}/>
       </div>
     </div>
 
