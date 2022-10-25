@@ -54,23 +54,28 @@ const Navbar = () => {
             tabIndex={0}
             className="dropdown-content menu shadow-lg bg-white rounded-lg w-40"
           >
-            <li className=" p-2">
-              <button className="text-black text-center font-medium active:bg-[#FDE1CE]">
+            <li>
+              <Link to="/user" className="text-black text-center font-medium active:bg-[#FDE1CE]">
                 Profile
-              </button>
+              </Link>
             </li>
 
             <hr className="text-main" />
-
-            <li className=" p-2">
-              <button className="text-black text-center font-medium active:bg-[#FFEBEB]">
-                History
-              </button>
+            <li>
+              <Link to="/purchase" className="text-black text-center font-medium active:bg-[#FFEBEB]">
+                Buy History
+              </Link>
+            </li>
+            
+            <hr className="text-main" />
+            <li>
+              <Link to="/sellhistory" className="text-black text-center font-medium active:bg-[#FFEBEB]">
+                Sell History
+              </Link>
             </li>
 
             <hr className="text-main" />
-
-            <li className=" p-2">
+            <li>
               <button className="text-black text-center font-medium active:bg-[#FFEBEB]">
                 Logout
               </button>

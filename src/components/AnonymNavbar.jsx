@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "./forms/LoginForm";
+
 
 const NavbarAnonym = () => {
   return (
-    // <div className="sticky top-0">
-    //   <div className="drawer drawer-end absolute">
-    //     <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-    //     <div className="drawer-content">
-          <div className="navbar bg-white px-10 py-3 flex justify-between sticky top-0 z-10 shadow-lg">
+          <div className="navbar bg-white px-5 md:px-10 py-3 flex justify-between sticky top-0 z-10 shadow-lg">
             <div>
               <Link to="/">
                 <h1 className="text-2xl font-bold">
@@ -36,11 +32,11 @@ const NavbarAnonym = () => {
                 </svg>
               </button>
             </div>
-            <div className="flex gap-6">
-              <Link to="/home" className="font-bold">
+            <div className="flex gap-2 md:gap-6">
+              <Link to="/home" className="hidden md:block font-bold  hover:text-primary">
                 Home
               </Link>
-              <Link to="/mycart" className="font-bold">
+              <Link to="/mycart" className="font-bold  hover:text-primary">
                 Cart
               </Link>
               <label
@@ -51,13 +47,6 @@ const NavbarAnonym = () => {
               </label>
             </div>
           </div>
-    //     </div>
-    //     <div className="drawer-side">
-    //       <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-    //       <LoginForm />
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
