@@ -1,6 +1,6 @@
 import React from 'react'
 import { Confirmedout } from '../components/buttons/ButtonAdd'
-import { SellHisCard } from '../components/Card'
+import { PurchaseHisCard } from '../components/Card'
 import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import Navbar from '../components/Navbar'
@@ -14,7 +14,7 @@ export const ConfirmPurchase = () => {
         <div className='mt-10'>
         <div className='w-full flex justify-center'>
             <div className='text-center flex flex-col w-3/4 p-4 items-center justify-center gap-10 border-2 border-secondary shadow-lg rounded-lg bg-white'>
-                <div><SellHisCard/></div>
+                <div><PurchaseHisCard/></div>
                 <div className='relative bottom-0 ml-auto'><Confirmedout/></div>
             </div>
         </div>
@@ -23,7 +23,7 @@ export const ConfirmPurchase = () => {
         <div className='mt-10'>
         <div className='w-full flex justify-center'>
             <div className='text-center flex flex-col w-3/4 p-4 items-center justify-center gap-10 border-2 border-secondary shadow-lg rounded-lg bg-white'>
-                <div><SellHisCard/></div>
+                <div><PurchaseHisCard/></div>
                 <div className='relative bottom-0 ml-auto'><Confirmedout/></div>
             </div>
         </div>
