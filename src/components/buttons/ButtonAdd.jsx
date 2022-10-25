@@ -15,7 +15,7 @@ export const Button = () => {
 export const EditProfile = () => {
   return (
     <div>
-        <button className="checkout px-4 py-2 bg-primary border-2 border-primary absolute rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+        <button className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
             <span className="text-checkout ml-2">Edit Profile</span>
         </button>
       </div>
@@ -35,7 +35,7 @@ export const ChooseFile = () => {
 export const SellProduct = () => {
     return (
     <div>
-        <button className="checkout px-4 py-2 bg-primary border-2 border-primary absolute rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+        <button className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
             <span className="text-checkout ml-2">Sell Product</span>
         </button>
     </div>
