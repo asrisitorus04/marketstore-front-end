@@ -33,7 +33,7 @@ const NavbarAnonym = () => {
               </button>
             </div>
             <div className="flex gap-2 md:gap-6">
-              <Link to="/home" className="hidden md:block font-bold  hover:text-primary">
+              <Link to="/" className="hidden md:block font-bold  hover:text-primary">
                 Home
               </Link>
               <Link to="/mycart" className="font-bold  hover:text-primary">
