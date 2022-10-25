@@ -45,8 +45,8 @@ export const SellProduct = () => {
 export const Checkout = () => {
   return (
     <div>
-      <button className="checkout px-4 py-2 bg-primary border-2 border-primary absolute rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
-        <span className="text-checkout ml-2">Checkout</span>
+      <button className="max-w-full px-24 py-2 bg-primary border-2 border-primary rounded-md font-bold text-xl text-white shadow-lg transform active:scale-75 transition-transformflex hover:bg-white hover:text-primary">
+        Checkout
       </button>
     </div>
   );
