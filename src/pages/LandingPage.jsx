@@ -7,6 +7,7 @@ import Carousel from "../components/Carousel"
 import LoginForm from "../components/forms/LoginForm";
 import RegisterForm from "../components/forms/RegisterForm";
 
+
 const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (
@@ -26,12 +27,8 @@ const LandingPage = () => {
             <RegisterForm/>
           </div>
         </div>
-
         <Carousel/>
-        <Carousel/>
-
       </Layout>
-      
   );
 };
 
