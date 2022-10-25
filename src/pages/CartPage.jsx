@@ -38,9 +38,9 @@ const CartPage = () => {
               </div>
               <hr className="border border-secondary" />
             </div>
-            <div className="text-center">
+            <Link to="/mycheckout" className="text-center">
               <Checkout />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

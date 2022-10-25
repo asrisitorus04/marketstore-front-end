@@ -25,10 +25,10 @@ const index = () => {
         <Route path="/user" element={<UserPage />} />
         <Route path="/mycart" element={<CartPage />} />
         <Route path="/mycheckout" element={<CheckoutPage />} />
-        <Route path="/purchase" element={<PurchasePage/>}/>
-        <Route path="/Confirmpurchase" element={<ConfirmPurchase/>} />
-        <Route path="/sellhistory" element={<SellHistory/>} />
-        <Route path="/confirmsell" element={<ConfirmSell/>} />
+        <Route path="/purchase" element={<PurchasePage />} />
+        <Route path="/Confirmpurchase" element={<ConfirmPurchase />} />
+        <Route path="/sellhistory" element={<SellHistory />} />
+        <Route path="/confirmsell" element={<ConfirmSell />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
