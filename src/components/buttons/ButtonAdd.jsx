@@ -58,8 +58,8 @@ export const Checkout = () => {
 export const Confirmed = () => {
   return (
     <div>
-      <button className="checkout px-4 py-2 bg-primary border-2 border-primary absolute rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
-        <span className="text-checkout ml-2">Confirmed</span>
+      <button className="checkout items-center justify-center font-extrabold px-4 py-2 bg-white border-2 border-primary rounded-md text-primary shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+        <span>Confirmed</span>
       </button>
     </div>
   );
