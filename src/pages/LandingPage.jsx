@@ -5,6 +5,8 @@ import { useTitle } from "../utils/hooks/useTitle";
 import AnonymNavbar from "../components/AnonymNavbar";
 import Navbar from "../components/Navbar";
 
+import Footer from "../components/Footer";
+
 const LandingPage = () => {
   useTitle("Kelontongpedia");
   return (
