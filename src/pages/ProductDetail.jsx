@@ -9,18 +9,16 @@ import Footer from "../components/Footer";
 import { useTitle } from "../utils/hooks/useTitle";
 import { useFetchGet } from "../utils/hooks/useFetchGet";
 import { WithRouter } from "../utils/navigation";
+import { apiRequest } from "../utils/apiRequest";
+import { handleAuth, setCarts } from "../utils/reducers/reducer";
 
 import { data } from "autoprefixer";
 
 const ProductDetail = (props) => {
   useTitle("Product Detail");
 
-  const { id } = props.params;
   const [data, setData] = useState([]);
   const dispatch = useDispatch([]);
-  // const [data] = useFetchGet(
-  //   `https://app.swaggerhub.com/9tw/ALTA-commerce/1.0.0/products/${id}`
-  // );
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,8 +26,8 @@ const ProductDetail = (props) => {
   }, []);
 
   const fetchData = async () => {
-    const { id } = props.params;
-    apiRequest(`products/${id}`, "get", {})
+    const { id_product } = props.params;
+    apiRequest(`products/${id_product}`, "get", {})
       .then((res) => {
         const results = res.data;
         setData(results);
@@ -48,17 +46,17 @@ const ProductDetail = (props) => {
   // }
 
   function handleCart(product) {
-    const getProducts = localStorage.getItem("myCart");
+    const getProducts = localStorage.getItem("myCarts");
     if (getProducts) {
       const parsedProducts = JSON.parse(getProducts);
       parsedProducts.push(product);
       const temp = JSON.stringify(parsedProducts);
-      dispatch(setCart(parsedProducts));
-      localStorage.setItem("myCart", temp);
+      dispatch(setCarts(parsedProducts));
+      localStorage.setItem("myCarts", temp);
     } else {
       const temp = JSON.stringify([product]);
-      dispatch(setCart([product]));
-      localStorage.setItem("myCart", temp);
+      dispatch(setCarts([product]));
+      localStorage.setItem("myCarts", temp);
     }
   }
 
@@ -68,7 +66,7 @@ const ProductDetail = (props) => {
       <div className="w-full flex justify-center my-32">
         <div className="w-3/4 flex justify-center gap-12 items-start">
           <img
-            src="https://placeimg.com/400/300/arch"
+            src={data.images}
             alt="Product"
             className="object-containt w-80 h-80 rounded-lg shadow-lg"
           />
@@ -83,8 +81,12 @@ const ProductDetail = (props) => {
               <br />
               {data.description}
             </p>
-            <div className="mt-12">
-              <Button addToCart={() => handleCart} />
+            <div className="flex items-baseline gap-2 my-5">
+              <p>Seller:</p>
+              <p className="text-xl font-bold">{data.seller}</p>
+            </div>
+            <div>
+              <Button addToCart={() => handleCart(data)} />
             </div>
           </div>
         </div>
