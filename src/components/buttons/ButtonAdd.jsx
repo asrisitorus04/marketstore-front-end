@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const Button = () => {
   
@@ -25,10 +25,25 @@ export const EditProfile = () => {
 
 
 export const ChooseFile = () => {
+  const [images, setImages] = useState ([]);
+  const [imageURLs, setImagesURLs] = useState([]);
+
+  useEffect(() => {
+    if (imageURLs.length < 1) return;
+    const newImageUrls = [];
+    images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
+    setImagesURLs(newImageUrls);
+  }, [images]);
+
+  function onImageChange(e) {
+    setImages([...e.target.files]);
+  }
+
   return (
     <div>
       <button className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
-        <span className="text-checkout ml-2">Choose File</span>
+        <span className="text-checkout ml-2" onChange={onImageChange}>Choose File</span>
+        { imageURLs.map(imageSrc => <img src={imageSrc}/>)}
       </button>
     </div>
   );
