@@ -43,7 +43,7 @@ const index = () => {
         <Routes>
           <Route path="/" element={isLoggedIn ? <Navigate to="/home"/> : <LandingPage />} />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/detail" element={<ProductDetail />} />
+          <Route path="/detail/:id" element={<ProductDetail />} />
           <Route path="/user" element={<UserPage />} />
           <Route path="/mycart" element={<CartPage />} />
           <Route path="/mycheckout" element={<CheckoutPage />} />
