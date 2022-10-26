@@ -7,12 +7,14 @@ import Footer from "../components/Footer";
 
 import { useTitle } from "../utils/hooks/useTitle";
 import { WithRouter } from "../utils/navigation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CartPage = () => {
   useTitle("My Cart");
 
-  const myCarts = useSelector((state) => state.data.myCart);
+  const myCarts = useSelector((state) => state.data.myCarts);
+  console.log(myCarts);
+  const dispatch = useDispatch();
 
   return (
     <Layout>
