@@ -1,7 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { handleAuth } from "../utils/reducers/reducer";
 
 const Navbar = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogOut = async () => {
+    localStorage.removeItem("token")
+    dispatch(handleAuth(false))
+    navigate("/")
+    alert("You've been log out ")
+  }
+
   return (
     <div className="navbar bg-white px-10 py-3 flex justify-between sticky top-0 z-10 shadow-lg">
       <div>
@@ -76,7 +88,8 @@ const Navbar = () => {
 
             <hr className="text-main" />
             <li>
-              <button className="text-black text-center font-medium active:bg-[#FFEBEB]">
+              <button className="text-black text-center font-medium active:bg-[#FFEBEB]"
+              onClick={()=> handleLogOut()}>
                 Logout
               </button>
             </li>
@@ -88,3 +101,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -24,9 +24,7 @@ const RegisterForm = (props) => {
     }, [email, password, userName])
 
     const handleSubmit = async (e) => {
-        console.log("test")
         setLoading(true)
-        e.preventDefault()
         const body = {
             username : userName,
             email,
@@ -36,7 +34,7 @@ const RegisterForm = (props) => {
         .then((res) => {
             const { message, data} = res
             if (data) {
-                navigate("/")
+                location.reload()
             } 
             alert(message)
         })

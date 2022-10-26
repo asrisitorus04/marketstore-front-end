@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import axios from "axios";
 import {TokenContext} from '../utils/context'
 import {useSelector, useDispatch} from 'react-redux'
@@ -18,7 +18,7 @@ import { SellHistory } from "../pages/SellHistory";
 import { ConfirmSell } from "../pages/ConfirmSell";
 
 
-axios.defaults.baseURL = " https://app.swaggerhub.com/apis-docs/9tw/ALTA-commerce/1.0.0";
+axios.defaults.baseURL = "https://virtserver.swaggerhub.com/9tw/ALTA-commerce/1.0.0";
 
 const index = () => {
   const isLoggedIn = useSelector((state) => state.data.isLoggedIn)
@@ -41,8 +41,7 @@ const index = () => {
     <TokenContext.Provider value={jwtToken}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={isLoggedIn ? <Navigate to="/"/> : <LandingPage />} />
-          <Route path="/" element={isLoggedIn ? <Navigate to="/home"/> : <HomePage />} />
+          <Route path="/" element={isLoggedIn ? <Navigate to="/home"/> : <LandingPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/detail" element={<ProductDetail />} />
           <Route path="/user" element={<UserPage />} />

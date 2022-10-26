@@ -13,7 +13,7 @@ const NavbarAnonym = () => {
                 </h1>
               </Link>
             </div>
-            <div className="md:flex flex-row mt-form-control input rounded-full hidden border-2 border-black border-lg items-center">
+            <div className="w-2/6 md:flex flex-row mt-form-control input rounded-full hidden border-2 border-black border-lg items-center">
               <input type="text" placeholder="Search Product ..." />
               <button className="py-3.5 pl-3 pr-2 border-y-2 border-l-2 border-none bg-main rounded-l-lg ">
                 <svg
