@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export const Button = ({ addToCart }) => {
   return (
     <>
@@ -19,12 +18,15 @@ export const Button = ({ addToCart }) => {
 export const EditProfile = () => {
   return (
     <div>
-        <label htmlFor="my-modal-3" className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
-            <span className="text-checkout ml-2" >Edit Profile</span>
-        </label>
-      </div>
-  )
-}
+      <label
+        htmlFor="my-modal-3"
+        className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary"
+      >
+        <span className="text-checkout ml-2">Edit Profile</span>
+      </label>
+    </div>
+  );
+};
 
 export const ChooseFile = () => {
   return (
@@ -39,9 +41,12 @@ export const ChooseFile = () => {
 export const SellProduct = () => {
   return (
     <div>
-        <label htmlFor="my-modal-2" className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
-            <span className="text-checkout ml-2">Sell Product</span>
-        </label>
+      <label
+        htmlFor="my-modal-2"
+        className="checkout px-4 py-2 bg-primary border-2 border-primary rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary"
+      >
+        <span className="text-checkout ml-2">Sell Product</span>
+      </label>
     </div>
   );
 };
