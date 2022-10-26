@@ -32,14 +32,17 @@ const LoginForm = (props) => {
     }
     apiRequest("login", "post", body)
     .then((res) => {
-      const {token} = res.data
+      const {token, message} = res
       localStorage.setItem("token ", token)
       dispatch(handleAuth(true))
+      alert(message)
       navigate("/home")
+
     })
     .catch((err) => {
       const {data} = err.response
       alert(data.message)
+
     })
     .finally(() => {
       setLoading(false)
@@ -95,7 +98,7 @@ const LoginForm = (props) => {
           </label>
         </div>
         <Login 
-        onClicked={(e) => handleSubmit(e)}
+        onClick={(e) => handleSubmit(e)}
         loading={loading || disabled}/>
       </div>
     </div>
