@@ -18,7 +18,7 @@ const FormModal = () => {
                 <div className="w-full mt-8 ml-2">
                   <div className="flex flex-row">
                     <div className="w-28">
-                      <label className="block w-ful h-10 mb-6 mt-3 text-xl font-bold text-black"> Username </label>
+                      <label className="block w-ful h-10 mb-6 text-xl font-bold text-black"> Username </label>
                       <label className="block w-ful h-10 mb-6 text-xl font-bold text-black"> Email </label>
                       <label className="block w-ful h-10 mb-6 text-xl font-bold text-black"> Handphone </label>
                       <label className="block w-ful h-10 mb-6 text-xl font-bold text-black"> Name </label>

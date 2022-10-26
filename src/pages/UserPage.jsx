@@ -8,6 +8,7 @@ import { ListSelling } from "../components/ListSelling";
 import CardUser from "../components/CardUser";
 import Footer from "../components/Footer";
 import Modal from "../components/Modal";
+import ModalSell from "../components/ModalSell";
 
 const UserPage = () => {
   useTitle("Kelontongpedia");
@@ -16,6 +17,7 @@ const UserPage = () => {
     <Layout>
       <Navbar />
       <Modal />
+      <ModalSell/>
       <div className="grid grid-cols-3">
         <div className="w-full">
           <CardUser />
