@@ -49,7 +49,7 @@ const UserPage = () => {
         <div className="w-full">
           <FormAccount data={users} />
             <div>
-              <label htmlFor="my-modal-2" className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+              <label className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
                 <span>Deactive</span>
               </label>
             </div>
