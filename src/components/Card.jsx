@@ -82,7 +82,7 @@ function SellHisCard() {
     </div>
   );
 }
-function ItemCart() {
+function ItemCart({ product, price }) {
   return (
     <div className="w-full flex justify-center">
       <div className="w-auto flex items-center p-2 gap-6 border-2 rounded-lg shadow-md">
@@ -92,8 +92,8 @@ function ItemCart() {
           className="object-containt w-24 h-24 border-2 border-secondary rounded-lg"
         />
         <div className="flex flex-col gap-1">
-          <p className="text-lg font-bold">Product Name</p>
-          <p className="text-xl font-bold text-primary">Rp 52.399</p>
+          <p className="text-lg font-bold">{product}</p>
+          <p className="text-xl font-bold text-primary">{price}</p>
         </div>
         <svg
           onClick=""

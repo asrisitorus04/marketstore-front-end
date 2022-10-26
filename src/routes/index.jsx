@@ -17,8 +17,8 @@ import { ConfirmPurchase } from "../pages/ConfirmPurchase";
 import { SellHistory } from "../pages/SellHistory";
 import { ConfirmSell } from "../pages/ConfirmSell";
 
-
-axios.defaults.baseURL = "https://virtserver.swaggerhub.com/9tw/ALTA-commerce/1.0.0";
+axios.defaults.baseURL =
+  "https://virtserver.swaggerhub.com/9tw/ALTA-commerce/1.0.0";
 
 const index = () => {
   const isLoggedIn = useSelector((state) => state.data.isLoggedIn)

@@ -7,9 +7,13 @@ import Footer from "../components/Footer";
 
 import { useTitle } from "../utils/hooks/useTitle";
 import { WithRouter } from "../utils/navigation";
+import { useSelector } from "react-redux";
 
 const CartPage = () => {
   useTitle("My Cart");
+
+  const myCarts = useSelector((state) => state.data.myCart);
+
   return (
     <Layout>
       <Navbar />
@@ -18,10 +22,13 @@ const CartPage = () => {
         <div className="w-3/4 flex justify-center gap-20">
           <div className="flex flex-col gap-2">
             <p className="text-2xl font-extrabold">Product</p>
-            <ItemCart />
-            <ItemCart />
-            <ItemCart />
-            <ItemCart />
+            {myCarts.map((data) => (
+              <ItemCart
+                key={data[item].id_product}
+                product={data[item].name_product}
+                price={data[item].price_product}
+              />
+            ))}
           </div>
           <div className="w-1/3 max-h-64 flex flex-col gap-8 pb-6 pl-6 pr-6 rounded-lg shadow-xl">
             <h3 className="text-2xl font-extrabold">Shopping Summary</h3>
