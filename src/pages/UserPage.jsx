@@ -7,6 +7,7 @@ import { FormAccount } from "../components/FormAccount";
 import { ListSelling } from "../components/ListSelling";
 import CardUser from "../components/CardUser";
 import Footer from "../components/Footer";
+import Modal from "../components/Modal";
 
 const UserPage = () => {
   useTitle("Kelontongpedia");
@@ -14,6 +15,7 @@ const UserPage = () => {
   return (
     <Layout>
       <Navbar />
+      <Modal />
       <div className="grid grid-cols-3">
         <div className="w-full">
           <CardUser />
@@ -24,7 +26,7 @@ const UserPage = () => {
         <div className="w-full">
           <div className="ml-10 mt-6 w-60 h-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-6 dark:bg-gray-800 dark:border-gray-700">
             <form className="space-y-6" action="#">
-              <h5 className ="text-xl font-bold text-primary dark:text-white">
+              <h5 className="text-xl font-bold text-primary dark:text-white">
                 Selling Product
               </h5>
               <ListSelling />
@@ -32,7 +34,7 @@ const UserPage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </Layout>
   );
 };
