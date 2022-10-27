@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ChooseFile } from "./buttons/ButtonAdd";
 
-
 export const CardModal = ({images, onClick}) => {
   const [image, setImage] = useState("https://fakeimg.pl/350x200/");
   const [saveImage, setSaveImage] = useState(null);
@@ -30,7 +29,7 @@ export const CardModal = ({images, onClick}) => {
   }
 
   return (
-    <>
+    
       <div className="mt-6 ml-6 w-60 p-4 flex flex-col items-center gap-2 hover:brightness-110 cursor-pointer">
         <img
           src={image}
@@ -66,6 +65,6 @@ export const CardModal = ({images, onClick}) => {
           </div>
         </div>
       </div>
-    </>
-  );
-};
+    </div>
+  )
+}

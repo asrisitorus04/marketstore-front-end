@@ -73,9 +73,11 @@ const UserPage = () => {
 
   const fetchData = () => {
     apiRequest("users","get",{})
-    .then(res => setUsers(res.data))
-
+    .then((res) => {
+      setUsers(res.data)
+    })
     .catch((err) => {
+      const {data} = err.response
       alert(data.message);
     })
     .finally(() => {
@@ -111,7 +113,7 @@ if (loading) {
           <CardUser data={users} />
         </div>
         <div className="w-full">
-          {/* <FormAccount /> */}
+          <FormAccount />
             <div>
               <label onClick={()=> handleDelete()} className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
                 <span>Deactive</span>
@@ -133,7 +135,7 @@ if (loading) {
                 description={data.description}
                 onNavigate={() => navigate(`/detail/${data.id}`)}
                 />
-              ))}
+               ))} 
             </form>
           </div>
         </div>
