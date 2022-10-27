@@ -42,7 +42,6 @@ const ModalSell = ({onSubmit, onClick, name, stock, description, images, price})
                 </div>
               </div>
             </div>
-            <div className="justify-center ml-96" onClick={onClick}><Submit/></div>
           </div>
         </div>
       </div>

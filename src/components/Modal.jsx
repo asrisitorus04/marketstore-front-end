@@ -15,21 +15,40 @@ const Modal = (props) => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(true);
+  const [datas, setDatas] = useState([])
+
+  useEffect(() => {
+    fetchData()
+    }, [])
+
+  const fetchData = () => {
+    apiRequest("users","get",{})
+    .then((res) => {
+      const results = res.data
+      setDatas(results)
+    })
+    .catch((err) => {
+      const {message} = err.response
+      alert(message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }
 
   const handleSubmit = async (e) => {
     setLoading(true);
-    e.preventDefault();
     alert("oke");
-    const formData =new FormData();
+    const formData = new FormData();
     for (const key in objSubmit) {
       formData.append(key, objSubmit[key]);
     }
-    apiRequest("profile", "put", objSubmit, "multipart/form-data")
+    apiRequest("users", "put", objSubmit, "multipart/form-data")
     .then((res) => {
       const { message } = res;
       alert(message);
       setObjSubmit({});
-      console.log(res)
+
     })
     .catch((err) => {
       const { data } = err.response;
@@ -43,6 +62,7 @@ const Modal = (props) => {
     temp[key] = value;
     setObjSubmit(temp);
   };
+  
 
 
   return (
@@ -65,14 +85,15 @@ const Modal = (props) => {
                       {" "}
                       ✕{" "}
                     </label>
-                    <CardModal />
+                    <CardModal onClick={datas} />
                   </div>
-                  <form onSubmit={handleSubmit} className="ml-10 w-full">
+                  <form onSubmit={(e) => handleSubmit(e)} className="ml-10 w-full">
                     <div className="w-full mt-8 ml-2">
                       <div className="flex flex-row">
                         <div className="w-28">
                           <label
                             className="block w-ful h-10 mb-6 text-xl font-bold text-black"
+                            value={username}
                             onChange={(e) => handleChange(e.target.value, "username")}
                           >
                             {" "}
@@ -80,12 +101,16 @@ const Modal = (props) => {
                           </label>
                           <label
                             className="block w-ful h-10 mb-6 text-xl font-bold text-black"
+                            value={email}
                             onChange={(e) => handleChange(e.target.value, "email")}
                           >
                             {" "}
                             Email{" "}
                           </label>
-                          <label className="block w-ful h-10 mb-6 text-xl font-bold text-black">
+                          <label className="block w-ful h-10 mb-6 text-xl font-bold text-black"
+                          onChange={(e) => setPhone(e.target.value)}
+                          value={phone}
+                          >
                             {" "}
                             Handphone{" "}
                           </label>
@@ -113,25 +138,29 @@ const Modal = (props) => {
                             className="h-10 mb-6 w-80 border-2 border-primary rounded-lg"
                             placeholder=""
                             type="text"
-                            onChange={(e) => setPhone(e.target.value)}
+                            onChange={(e) => handleChange(e.target.value,"phone")}
+                            value={phone}
                           />
                           <input
                             className="h-10 mb-6 w-80 border-2 border-primary rounded-lg"
                             placeholder=""
                             type="text"
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={(e) => handleChange(e.target.value)}
+                            value={name}
                           />
                           <input
                             className="h-10 mb-6 w-80 border-2 border-primary rounded-lg"
                             placeholder=""
                             type="text"
-                            onChange={(e) => setAddress(e.target.value)}
+                            onChange={(e) => handleChange(e.target.value)}
+                            value={address}
                           />
                         </div>
                       </div>
                     </div>
                   </form>
                 </div>
+                
               </div>
             </div>
           </div>

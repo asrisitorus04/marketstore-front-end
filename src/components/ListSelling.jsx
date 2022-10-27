@@ -8,7 +8,7 @@ export const ListSelling = ({name, price, images, description, onNavigate}) => {
             <div className='cursor-pointer'
             onClick={onNavigate}>
               <div className="w-20 rounded bordered={true}">
-                <img className="rounded-md" src="https://placeimg.com/192/192/people" />
+                <img className="rounded-md" src={images} />
               </div>
             </div>
             <div className="font-semibold text-sm w-full">

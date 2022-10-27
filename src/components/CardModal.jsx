@@ -15,7 +15,7 @@ export const CardModal = ({images, onClick}) => {
     if (saveImage) {
       let formData = new FormData();
       formData.append("photo", saveImage);
-      fetch("https://virtserver.swaggerhub.com/9tw/ALTA-commerce/1.0.0/users", {
+      fetch("http://54.255.204.195:8000", {
         method: "PUT",
         body: formData,
       })

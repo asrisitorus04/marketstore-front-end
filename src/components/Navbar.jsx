@@ -67,7 +67,7 @@ const Navbar = () => {
             className="dropdown-content menu shadow-lg bg-white rounded-lg w-40"
           >
             <li>
-              <Link to="/user" className="text-black text-center font-medium active:bg-[#FDE1CE]">
+              <Link to="/users" className="text-black text-center font-medium active:bg-[#FDE1CE]">
                 Profile
               </Link>
             </li>
