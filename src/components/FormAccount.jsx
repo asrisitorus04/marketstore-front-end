@@ -1,14 +1,11 @@
 import React from 'react'
 
 export const FormAccount = ({data}) => {
+
   return (
     <>
     <div className='w-80 mt-10 ml-10'>
     <div className='font-bold text-primary text-2xl'>Account Information</div>
-    {
-      data.map((sell) => {
-        return(
-          <>
           <div className="mt-4 grid grid-cols-2">
             <div>
               <label className="block mb-2 text-sm font-semibold text-black">username:</label>
@@ -16,9 +13,9 @@ export const FormAccount = ({data}) => {
               <label className="block mb-2 text-sm font-semibold text-black">phone:</label>
             </div>
             <div>
-            <label className="block mb-2 text-sm font-semibold text-black">{sell.username}</label>
-              <label className="block mb-2 text-sm font-semibold text-black">{sell.email}</label>
-              <label className="block mb-2 text-sm font-semibold text-black">{sell.phone}</label>
+            <label className="block mb-2 text-sm font-semibold text-black">{data?.username}</label>
+              <label className="block mb-2 text-sm font-semibold text-black">{data?.email}</label>
+              <label className="block mb-2 text-sm font-semibold text-black">{data?.phone}</label>
             </div>
           </div>
 
@@ -30,16 +27,11 @@ export const FormAccount = ({data}) => {
               <label className="block mb-2 text-sm font-semibold text-black">address:</label>
             </div>
             <div>
-            <label className="block mb-2 text-sm font-semibold text-black">{sell.name}</label>
-              <label className="block mb-2 text-sm font-semibold text-black">{sell.address}</label>
+            <label className="block mb-2 text-sm font-semibold text-black">{data?.name}</label>
+              <label className="block mb-2 text-sm font-semibold text-black">{data?.address}</label>
             </div>
           </div>
-          </div>
-          </>
-        )
-      })
-    }
-          
+          </div>   
           </div>
     </>
   )

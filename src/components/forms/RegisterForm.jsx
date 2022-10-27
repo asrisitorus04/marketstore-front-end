@@ -24,9 +24,10 @@ const RegisterForm = (props) => {
     }, [email, password, userName])
 
     const handleSubmit = async (e) => {
-        setLoading(true)
+        setLoading(true);
+        e.preventDefault();
         const body = {
-            username : userName,
+            userName,
             email,
             password,
         }

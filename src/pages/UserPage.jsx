@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { WithRouter } from "../utils/navigation";
 import Layout from "../components/Layout";
 import { useTitle } from "../utils/hooks/useTitle";
@@ -9,19 +9,30 @@ import CardUser from "../components/CardUser";
 import Footer from "../components/Footer";
 import Modal from "../components/Modal";
 import ModalSell from "../components/ModalSell";
+import { apiRequest } from "../utils/apiRequest";
 
-const UserPage = () => {
+const UserPage = ({handleDelete}) => {
   useTitle("Kelontongpedia");
 
-  const [users, setUsers] = useState([
-    {
-      username: "Samleho",
-      email: "samleho123@gmail.com",
-      phone: "081234567890",
-      name: "Samleho Wowo",
-      address: "Jl. In Aja Lah Ya",
-    },
-  ])
+  const [users, setUsers] = useState()
+  const [loading, setLoading] = useState([]);
+
+  const fetchData = () => {
+    apiRequest("users","get",{})
+    .then(res => setUsers(res.data))
+
+    .catch((err) => {
+      alert(data.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }
+
+  useEffect(() => {
+    fetchData()
+  },[])
+  
 
   const [sells, setSells] = useState([
   {
@@ -44,12 +55,12 @@ const UserPage = () => {
       <ModalSell/>
       <div className="grid grid-cols-3">
         <div className="w-full">
-          <CardUser />
+          <CardUser data={users} />
         </div>
         <div className="w-full">
           <FormAccount data={users} />
             <div>
-              <label className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+              <label onClick={() => handleDelete(users)} className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
                 <span>Deactive</span>
               </label>
             </div>
