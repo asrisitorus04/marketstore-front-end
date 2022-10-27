@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { WithRouter } from "../utils/navigation";
+import { WithRouter } from "../utils/Navigation";
 import {apiRequest} from "../utils/apiRequest"
 
 import Layout from "../components/Layout";
