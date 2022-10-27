@@ -16,51 +16,34 @@ const Modal = (props) => {
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // const handleSubmit = async (e) => {
-  //   setLoading(true);
-  //   e.preventDefault();
-  //   const formData =new FormData();
-  //   for (const key in objSubmit) {
-  //     formData.append(key, objSubmit[key]);
-  //   }
-  //   apiRequest("profile", "put", objSubmit, "multipart/form-data")
-  //   .then((res) => {
-  //     const { message } = res;
-  //     alert(message);
-  //     setObjSubmit({});
-  //     console.log(res)
-  //   })
-  //   .catch((err) => {
-  //     const { data } = err.response;
-  //     alert(data.message);
-  //   })
-  //   .finally(() => fetchData());
-  // };
-
-  // const handleChange = (value, key) => {
-  //   let temp = {...objSubmit};
-  //   temp[key] = value;
-  //   setObjSubmit(temp);
-  // };
-
-  //menjalankan form
-  const [formData, setFormData] = useState({
-    username: "fffff",
-    email: "ffff",
-    
-  });
-
-  function handleChange(e) {
-    let data = { ...formData };
-    data[e.target.username] = e.target.value;
-    setFormData(data);
-    alert("oke");
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     alert("oke");
-  }
+    const formData =new FormData();
+    for (const key in objSubmit) {
+      formData.append(key, objSubmit[key]);
+    }
+    apiRequest("profile", "put", objSubmit, "multipart/form-data")
+    .then((res) => {
+      const { message } = res;
+      alert(message);
+      setObjSubmit({});
+      console.log(res)
+    })
+    .catch((err) => {
+      const { data } = err.response;
+      alert(data.message);
+    })
+    .finally(() => fetchData());
+  };
+
+  const handleChange = (value, key) => {
+    let temp = {...objSubmit};
+    temp[key] = value;
+    setObjSubmit(temp);
+  };
+
 
   return (
     <>
@@ -91,7 +74,6 @@ const Modal = (props) => {
                           <label
                             className="block w-ful h-10 mb-6 text-xl font-bold text-black"
                             onChange={(e) => handleChange(e.target.value, "username")}
-                            value={formData.username}
                           >
                             {" "}
                             Username{" "}
@@ -99,7 +81,6 @@ const Modal = (props) => {
                           <label
                             className="block w-ful h-10 mb-6 text-xl font-bold text-black"
                             onChange={(e) => handleChange(e.target.value, "email")}
-                            value={formData.email}
                           >
                             {" "}
                             Email{" "}
@@ -150,9 +131,6 @@ const Modal = (props) => {
                       </div>
                     </div>
                   </form>
-                </div>
-                <div className="justify-center ml-96">
-                  <Submit onClick={(e) => handleSubmit(e)} />
                 </div>
               </div>
             </div>

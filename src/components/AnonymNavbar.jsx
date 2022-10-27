@@ -14,23 +14,27 @@ const NavbarAnonym = () => {
               </Link>
             </div>
             <div className="w-2/6 md:flex flex-row mt-form-control input rounded-full hidden border-2 border-black border-lg items-center">
-              <input type="text" placeholder="Search Product ..." />
-              <button className="py-3.5 pl-3 pr-2 border-y-2 border-l-2 border-none bg-main rounded-l-lg ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                  />
-                </svg>
-              </button>
+                <input
+                  type="text"
+                  placeholder="Search Product ..."
+                  className="w-full outline-none"
+                />
+                <button className="py-3.5 border-y-2 border-l-2 border-none bg-main rounded-l-lg ">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                    />
+                  </svg>
+                </button>
             </div>
             <div className="flex gap-2 md:gap-6">
               <Link to="/" className="hidden md:block font-bold  hover:text-primary">
