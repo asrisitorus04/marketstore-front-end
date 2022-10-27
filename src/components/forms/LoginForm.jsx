@@ -1,57 +1,57 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import { Login } from "../buttons/ButtonSubmit";
 import { WithRouter } from "../../utils/navigation";
-import {apiRequest} from '../../utils/apiRequest'
-import {handleAuth} from '../../utils/reducers/reducer'
+import { apiRequest } from "../../utils/apiRequest";
+import { handleAuth } from "../../utils/reducers/reducer";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = (props) => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [disabled, setDisabled] = useState(true)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
-    if (email && password) {
-      setDisabled(false) 
+    if (userName && password) {
+      setDisabled(false);
     } else {
-      setDisabled(true)
+      setDisabled(true);
     }
-  }, [email,password])
-    
+  }, [userName, password]);
+
   const handleSubmit = async (e) => {
-    setLoading(true)
-    e.preventDefault()
+    setLoading(true);
+    e.preventDefault();
     const body = {
-      email,
-      password
-    }
+      username: userName,
+      password,
+    };
     apiRequest("login", "post", body)
-    .then((res) => {
-      const {token, message} = res
-      localStorage.setItem("token ", token)
-      dispatch(handleAuth(true))
-      alert(message)
-      navigate("/home")
-
-    })
-    .catch((err) => {
-      const {data} = err.response
-      alert(data.message)
-
-    })
-    .finally(() => {
-      setLoading(false)
-    })
-  }
+      .then((res) => {
+        const { token, message } = res.data;
+        localStorage.setItem("token", token);
+        dispatch(handleAuth(true));
+        alert(res.message);
+        navigate("/home");
+      })
+      .catch((err) => {
+        const { data } = err.response;
+        alert(data.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
-    <div className="w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10"
-    onSubmit={(e) => handleSubmit(e)}>
+    <div
+      className="w-full md:w-96 h-screen bg-white shadow-lg px-10 pt-10 space-y-5 z-10"
+      onSubmit={(e) => handleSubmit(e)}
+    >
       <div className="flex flex-row justify-between">
         <h1 className="text-2xl font-semibold">Login</h1>
         <label htmlFor="my-modal-3" className="cursor-pointer">
@@ -74,35 +74,34 @@ const LoginForm = (props) => {
       <div>
         <h1 className="text-2md font-semibold">Username</h1>
         <Input
-        id="Input Username Lgn"
-        placeholder="Input Username"
-        type="text"
-        onChange={(e) => setUserName(e.target.value)}
+          id="Input Username Lgn"
+          placeholder="Input username"
+          type="text"
+          onChange={(e) => setUserName(e.target.value)}
         />
       </div>
       <div>
         <h1 className="text-2md font-semibold">Password</h1>
         <Input
-        id="Input Password Lgn"
-        placeholder="Input Password"
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}/>
+          id="Input Password Lgn"
+          placeholder="Input Password"
+          type="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
       </div>
       <div className="flex flex-col gap-4 items-center text-[13px] text-center">
         <div>
-          Dont have an account? 
-          <label htmlFor="my-modal-4"
+          Dont have an account?
+          <label
+            htmlFor="my-modal-4"
             className="text-primary font-semibold hover:underline cursor-pointer"
           >
             Sign Up Now!
           </label>
         </div>
-        <Login 
-        onClick={(e) => handleSubmit(e)}
-        loading={loading || disabled}/>
+        <Login onClick={(e) => handleSubmit(e)} loading={loading || disabled} />
       </div>
     </div>
-
   );
 };
 

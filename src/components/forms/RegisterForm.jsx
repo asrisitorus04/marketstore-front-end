@@ -86,7 +86,7 @@ const RegisterForm = (props) => {
         <Input
           id="Input Email"
           placeholder="Input Email"
-          type="text"
+          type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
