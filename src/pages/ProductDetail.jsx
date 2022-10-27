@@ -9,11 +9,13 @@ import { useTitle } from "../utils/hooks/useTitle";
 import { WithRouter } from "../utils/Navigation";
 import { apiRequest } from "../utils/apiRequest";
 import { handleAuth, setCarts } from "../utils/reducers/reducer";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ProductDetail = (props) => {
   useTitle("Product Detail");
 
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
   const dispatch = useDispatch([]);
   const [loading, setLoading] = useState(true);
 
@@ -40,19 +42,19 @@ const ProductDetail = (props) => {
     return <h2 className="text-secondary p-4">Loading...</h2>;
   }
 
-  function handleCart(product) {
-    const getProducts = localStorage.getItem("myCarts");
-    if (getProducts) {
-      const parsedProducts = JSON.parse(getProducts);
-      parsedProducts.push(product);
-      const temp = JSON.stringify(parsedProducts);
-      dispatch(setCarts(parsedProducts));
-      localStorage.setItem("myCarts", temp);
-    } else {
-      const temp = JSON.stringify([product]);
-      dispatch(setCarts([product]));
-      localStorage.setItem("myCarts", temp);
-    }
+  function handleCart() {
+    apiRequest("carts", "post", {})
+      .then((res) => {
+        const { message } = res.data;
+        alert(message);
+      })
+      .catch((err) => {
+        const { message } = err.response.data;
+        alert(message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }
 
   return (
