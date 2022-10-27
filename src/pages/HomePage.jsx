@@ -30,8 +30,6 @@ const HomePage = (props) => {
     .then((res) => {
       const results = res.data
       setDatas(results)
-      console.log(results)
-
     })
     .catch((err) => {
       const {data} = err.response
@@ -40,21 +38,6 @@ const HomePage = (props) => {
     .finally(() => {
       setLoading(false)
     })
-  }
-
-  const handleToCart = (product) => {
-    const getProducts = localStorage.getItem("myCarts");
-    if (getProducts) {
-      const parsedProducts = JSON.parse(getProducts);
-      parsedProducts.push(product);
-      const temp = JSON.stringify(parsedProducts);
-      dispatch(setCarts(parsedProducts));
-      localStorage.setItem("myCarts", temp);
-    } else {
-      const temp = JSON.stringify([product]);
-      dispatch(setCarts([product]));
-      localStorage.setItem("myCarts", temp);
-    }
   }
 
   if (loading) {

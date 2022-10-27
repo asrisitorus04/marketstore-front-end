@@ -23,18 +23,18 @@ const UserPage = () => {
   const [stock, setStock] = useState("")
   const [price, setPrice] = useState("")
   const [description, setDescription] = useState("")
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState("")
+  const [image, setImage] = useState("")
   const [datas, setDatas] = useState([])
   const [loading, setLoading] = useState(true)
   const [users, setUsers] = useState()
   
   useEffect(() => {
     fetchDataProduct()
-    fetchData()
     }, [])
 
     const fetchDataProduct = async () => {
-      apiRequest("products/me", "get", {})
+      apiRequest("products", "get", {})
       .then((res) => {
         const results = res.data
         setDatas(results)
@@ -60,21 +60,25 @@ const UserPage = () => {
     .then((res) => {
       const results = res.data
       alert(res.message)
-
     })
     .catch((err) => {
       const { data} = err.response
       alert(data.message)
     })
     .finally(() => {
-      fetchData()
+      fetchDataProduct()
     })
   }
+
+  useEffect(() => {
+    fetchData()
+    }, [])
 
   const fetchData = () => {
     apiRequest("users","get",{})
     .then((res) => {
-      setUsers(res.data)
+      const results = res.data
+      setUsers(results)
     })
     .catch((err) => {
       const {data} = err.response
@@ -113,7 +117,7 @@ if (loading) {
           <CardUser data={users} />
         </div>
         <div className="w-full">
-          <FormAccount />
+          <FormAccount data={users} />
             <div>
               <label onClick={()=> handleDelete()} className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
                 <span>Deactive</span>
@@ -121,7 +125,7 @@ if (loading) {
             </div>
         </div>
         <div className="w-full">
-          <div className="ml-10 mt-6 w-80 h-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-6 dark:bg-gray-800 dark:border-gray-700">
+          <div className="ml-10 mt-6 w-80 h-96 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-6 dark:bg-gray-800 dark:border-gray-700 overflow-auto" >
             <form className="space-y-6" action="#">
               <h5 className="text-xl font-bold text-primary dark:text-white">
                 Selling Product

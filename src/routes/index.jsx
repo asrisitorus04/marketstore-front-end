@@ -53,7 +53,7 @@ const index = () => {
           />
           <Route path="/home" element={<HomePage />} />
           <Route path="/detail/:id_product" element={<ProductDetail />} />
-          <Route path="/user" element={<UserPage />} />
+          <Route path="/users" element={<UserPage />} />
           <Route path="/mycart" element={<CartPage />} />
           <Route path="/mycheckout" element={<CheckoutPage />} />
           <Route path="/purchase" element={<PurchasePage />} />
