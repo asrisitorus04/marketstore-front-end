@@ -1,10 +1,11 @@
+import { data } from "autoprefixer";
 import React from "react";
 
-export const Submit = () => {
+export const Submit = ({onClick}) => {
   return (
     <div>
       <button className="login px-4 py-2 rounded-md text-white font-semibold border-2 border-[#358600] shadow-lg transform active:scale-75 transition-transform mx-5 flex">
-        <span className="text-login text-[#358600] text-center ">SUBMIT</span>
+        <span className="text-login text-[#358600] text-center " onClick={onClick} >SUBMIT</span>
       </button>
     </div>
   );

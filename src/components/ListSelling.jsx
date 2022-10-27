@@ -35,3 +35,6 @@ export const ListSelling = ({name, price, images, description, onNavigate}) => {
         </div>
   )
 }
+
+   
+

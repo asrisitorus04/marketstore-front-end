@@ -11,9 +11,13 @@ import Footer from "../components/Footer";
 import Modal from "../components/Modal";
 import ModalSell from "../components/ModalSell";
 import { apiRequest } from "../utils/apiRequest";
+import { useDispatch } from "react-redux";
+import { handleAuth } from "../utils/reducers/reducer";
+
 
 const UserPage = () => {
   useTitle("Kelontongpedia");
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [name, setName] = useState("")
   const [stock, setStock] = useState("")
@@ -22,12 +26,14 @@ const UserPage = () => {
   const [images, setImages] = useState([])
   const [datas, setDatas] = useState([])
   const [loading, setLoading] = useState(true)
+  const [users, setUsers] = useState()
   
   useEffect(() => {
+    fetchDataProduct()
     fetchData()
     }, [])
 
-    const fetchData = async () => {
+    const fetchDataProduct = async () => {
       apiRequest("products/me", "get", {})
       .then((res) => {
         const results = res.data
@@ -65,7 +71,26 @@ const UserPage = () => {
     })
   }
 
-  if (loading) {
+  const fetchData = () => {
+    apiRequest("users","get",{})
+    .then(res => setUsers(res.data))
+
+    .catch((err) => {
+      alert(data.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }
+  
+const handleDelete = async () => {
+  localStorage.removeItem("token")
+  dispatch(handleAuth(true))
+  navigate("/")
+  alert("Are you sure you want to delete the account? ")
+}
+
+if (loading) {
     return <div>Loading...</div>
   }
 
@@ -83,12 +108,12 @@ const UserPage = () => {
       />
       <div className="grid grid-cols-3">
         <div className="w-full">
-          <CardUser />
+          <CardUser data={users} />
         </div>
         <div className="w-full">
           {/* <FormAccount /> */}
             <div>
-              <label className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
+              <label onClick={()=> handleDelete()} className="w-32 ml-10 mt-10 justify-center px-4 py-2 font-bold bg-[#F41111] border-2 border-[#F41111] rounded-md text-white shadow-lg transform active:scale-75 transition-transform mx-5 flex hover:bg-white hover:text-primary">
                 <span>Deactive</span>
               </label>
             </div>

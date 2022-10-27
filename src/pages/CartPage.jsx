@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { ItemCart } from "../components/Card";
@@ -7,14 +9,35 @@ import Footer from "../components/Footer";
 
 import { useTitle } from "../utils/hooks/useTitle";
 import { WithRouter } from "../utils/navigation";
+import { apiRequest } from "../utils/apiRequest";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 const CartPage = () => {
   useTitle("My Cart");
 
-  const myCarts = useSelector((state) => state.data.myCarts);
-  console.log(myCarts);
+  const [datas, setDatas] = useState([]);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    apiRequest("carts", "get", {})
+      .then((res) => {
+        const results = res.data;
+        setDatas(results);
+      })
+      .catch((err) => {
+        const { data } = err.response;
+        alert(data.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <Layout>
@@ -24,12 +47,8 @@ const CartPage = () => {
         <div className="w-3/4 flex justify-center gap-20">
           <div className="flex flex-col gap-2">
             <p className="text-2xl font-extrabold">Product</p>
-            {myCarts.map((data) => (
-              <ItemCart
-                key={data[item].id_product}
-                product={data[item].name_product}
-                price={data[item].price_product}
-              />
+            {datas?.map((data) => (
+              <ItemCart key={data.id_cart} item={data.item} />
             ))}
           </div>
           <div className="w-1/3 max-h-64 flex flex-col gap-8 pb-6 pl-6 pr-6 rounded-lg shadow-xl">
