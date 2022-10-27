@@ -12,8 +12,7 @@ function ProductCard({
   return (
     <div className="w-52 p-4 flex flex-col items-center gap-2 border-2 border-primary rounded-2xl shadow-lg bg-white hover:brightness-110 cursor-pointer">
       <img
-        src={"https://placeimg.com/400/300/arch"}
-        alt="Clothes"
+        src={images}
         className="object-containt w-40 h-40 rounded-lg"
         onClick={onNavigate}
       />

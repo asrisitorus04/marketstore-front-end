@@ -1,5 +1,5 @@
 import React from "react";
-import { WithRouter } from "../../utils/navigation";
+import { WithRouter } from "../../utils/Navigation";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { apiRequest } from "../../utils/apiRequest";
@@ -60,13 +60,13 @@ const RegisterForm = (props) => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
-            class="w-6 h-6"
+            className="w-6 h-6"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M6 18L18 6M6 6l12 12"
             />
           </svg>
