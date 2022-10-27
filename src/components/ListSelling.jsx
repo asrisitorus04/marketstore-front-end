@@ -1,12 +1,12 @@
 import React from "react";
 
-export const ListSelling = ({data}) => {
+export const ListSelling = () => {
   return (
     <>
       <div>
-      {
+      {/* {
           data.map((sell) => {
-            return (
+            return ( */}
               <div className="w-52 grid grid-cols-2 mt-4">
           <div>
             <div className="w-20 rounded bordered={true}">
@@ -31,17 +31,17 @@ export const ListSelling = ({data}) => {
           />
         </svg>
             <div className="font-semibold text-sm">
-                <h5>{sell.name}</h5>
-                <span>{sell.price}</span>
+                <h5>Sepatu</h5>
+                <span>60.000</span>
             </div>
             <div className="text-xs">
-                <p>{sell.detail}</p>
+                <p>Sepatunya mehong</p>
             </div>
           </div>
         </div>
-            )
+            {/* )
           })
-        }
+        } */}
         
       </div>
     </>

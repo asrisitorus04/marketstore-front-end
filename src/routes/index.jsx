@@ -17,7 +17,7 @@ import { ConfirmPurchase } from "../pages/ConfirmPurchase";
 import { SellHistory } from "../pages/SellHistory";
 import { ConfirmSell } from "../pages/ConfirmSell";
 
-axios.defaults.baseURL = "http://54.255.204.195:8000/";
+axios.defaults.baseURL = "http://54.255.204.195:8000";
 
 const index = () => {
   const isLoggedIn = useSelector((state) => state.data.isLoggedIn);
