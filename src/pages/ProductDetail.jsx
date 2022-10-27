@@ -41,9 +41,9 @@ const ProductDetail = (props) => {
       });
   };
 
-  // if (loading) {
-  //   return <h2 className="text-secondary p-4">Loading...</h2>;
-  // }
+  if (loading) {
+    return <h2 className="text-secondary p-4">Loading...</h2>;
+  }
 
   function handleCart(product) {
     const getProducts = localStorage.getItem("myCarts");
