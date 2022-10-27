@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { WithRouter } from "../utils/navigation";
+import { WithRouter } from "../utils/Navigation";
 import { useTitle } from "../utils/hooks/useTitle";
 import { useNavigate } from "react-router-dom";
 import { setCarts } from "../utils/reducers/reducer";

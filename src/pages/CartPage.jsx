@@ -8,7 +8,7 @@ import { Checkout } from "../components/buttons/ButtonAdd";
 import Footer from "../components/Footer";
 
 import { useTitle } from "../utils/hooks/useTitle";
-import { WithRouter } from "../utils/navigation";
+import { WithRouter } from "../utils/Navigation";
 import { apiRequest } from "../utils/apiRequest";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

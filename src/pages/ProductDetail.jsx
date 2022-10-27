@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import { Button } from "../components/buttons/ButtonAdd";
 import Footer from "../components/Footer";
 
 import { useTitle } from "../utils/hooks/useTitle";
-import { useFetchGet } from "../utils/hooks/useFetchGet";
-import { WithRouter } from "../utils/navigation";
+import { WithRouter } from "../utils/Navigation";
 import { apiRequest } from "../utils/apiRequest";
 import { handleAuth, setCarts } from "../utils/reducers/reducer";
-
-import { data } from "autoprefixer";
 
 const ProductDetail = (props) => {
   useTitle("Product Detail");
@@ -31,7 +27,6 @@ const ProductDetail = (props) => {
       .then((res) => {
         const results = res.data;
         setData(results);
-        console.log(results);
       })
       .catch((err) => {
         alert(err.toString());
