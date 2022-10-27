@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ChooseFile } from "./buttons/ButtonAdd";
 
-export const CardModal = () => {
+
+export const CardModal = ({images, onClick}) => {
   const [image, setImage] = useState("https://fakeimg.pl/350x200/");
   const [saveImage, setSaveImage] = useState(null);
 
@@ -38,6 +39,11 @@ export const CardModal = () => {
         />
         <div className="text-center">
           <div className="w-full">
+
+            <div className="items-center">
+              <ChooseFile
+              images={images}
+              />
             <div className="items-center" onChange={handleUploadChange}>
               <div className="ml-32">
                 <input
