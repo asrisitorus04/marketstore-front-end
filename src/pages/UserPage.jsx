@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import { WithRouter } from "../utils/navigation";
+import { WithRouter } from "../utils/Navigation";
 import Layout from "../components/Layout";
 import { useTitle } from "../utils/hooks/useTitle";
 import Navbar from "../components/Navbar";
