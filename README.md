@@ -1,14 +1,15 @@
 # Vite & React Js with Tailwind - Kelontongpedia
-####  _E-Commerce Application Project create marketstore-front-end_
-Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce website called Kelontongpedia that functions like Tokopedia. We built a Kelontongpedia e-commerce website using (Vite, React, and Node.JS with Tailwind styling Framework).
 
-## Demo Website
-- kelontongpedia -cmn
-- [kelontongpedi] - nf
-- | Dropbox | [https://kelontongpedia.vercel.app/][PlDb] |
+####  _E-Commerce Application Project create marketstore-front-end_
 ```sh
-- [_kelontongpedia_] - kelontongpedia-mice.surge.sh
+Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce website called Kelontongpedia that functions like Tokopedia. We built a Kelontongpedia e-commerce website using (Vite, React, and Node.JS with Tailwind styling Framework).
 ```
+
+## Demo Website Kelontongpedia
+
+- | Vercel  | -- [https://kelontongpedia.vercel.app/]
+- | Netlify | -- [https://glittery-naiad-627384.netlify.app/]
+- |  surge  | -- [kelontongpedia-mice.surge.sh]
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
