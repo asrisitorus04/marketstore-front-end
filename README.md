@@ -4,7 +4,7 @@ Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce 
 
 ## Demo Website
 ```sh
--[kelontongpedia] - kelontongpedia-mice.surge.sh
+- [_kelontongpedia_] - kelontongpedia-mice.surge.sh
 ```
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
