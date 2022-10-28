@@ -10,7 +10,10 @@ _link_
 
 # Run Locally
 ## 1.Clone Repository
+```sh
 $ git clone https://github.com/contructWeek3/marketstore-front-end.git
+```
+
 $ cd marketstore-front-end
 $ npm install
 
