@@ -11,7 +11,7 @@ website using (Vite, React, and Node.JS with Tailwind styling Framework).
 
 - | Vercel  | -- [https://kelontongpedia.vercel.app/]
 - | Netlify | -- [https://glittery-naiad-627384.netlify.app/]
-- |  surge  | -- [kelontongpedia-mice.surge.sh]
+- |  surge  | -- [http://kelontongpedia-mice.surge.sh]
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
