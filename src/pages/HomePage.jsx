@@ -40,6 +40,21 @@ const HomePage = (props) => {
     })
   }
 
+  function handleCart() {
+    apiRequest("carts", "post", {})
+      .then((res) => {
+        const { message } = res.data;
+        alert(message);
+      })
+      .catch((err) => {
+        const { message } = err.response.data;
+        alert(message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -59,7 +74,7 @@ const HomePage = (props) => {
             images={data.images}
             stock={data.stock}
             onNavigate={() => navigate(`/detail/${data.id}`)}
-            onCart={() => handleToCart(data)}
+            onCart={() => handleCart(data)}
             />
           ))}
         </div>
