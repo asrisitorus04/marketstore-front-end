@@ -44,7 +44,8 @@ $ npm run dev
 
 # what can be done with this website
 ```sh
-- Users can perform operations to create (register), read (see profile), update (update profile) and delete (delete account) on User data.
+- Users can perform operations to create (register), read (see profile)
+- user can update (update profile) and delete (delete account) on User data.
 - Users who have registered can login.
 - Users can see a list of products (CRUD)
 - Users can create, delete, edit product
