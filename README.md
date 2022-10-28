@@ -49,7 +49,7 @@ You Will Learn
 - Tailwind: CSS Grid, Flexbox
 - Vite React.js: Components, Props, Events, Hooks, Router, Axios
 - Context API: Store, Reducers, Actions
-- Node & Express: Web API, Body Parser, File Upload, JWT
+- Node JS: Web API, Body Parser, File Upload, JWT
 - Development with Github, Vercel, Netlify, Surge
 
 
