@@ -70,7 +70,7 @@ const ProductDetail = (props) => {
           <div className="flex flex-col gap-2">
             <h2 className="text-xl font-bold">{data.name}</h2>
             <h1 className="text-3xl font-extrabold text-primary">
-              {data.price}
+             Rp {(data.price).toLocaleString("en-US", {currency:"USD"})}
             </h1>
             <p>Stock:{data.stock}</p>
             <p>

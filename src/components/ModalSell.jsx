@@ -41,11 +41,15 @@ const ModalSell = ({onSubmit, onClick, name, stock, description, images, price})
                   </div>
                 </div>
               </div>
+              <button >
+              <span className="text-login text-[#358600] text-center " onClick={onClick} >SUBMIT</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
         </div>
+        
       </div>
     </>
   )
