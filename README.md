@@ -1,5 +1,5 @@
 # Vite & React Js with Tailwind - Kelontongpedia
-##  _E-Commerce Application Project create marketstore-front-end_
+####  _E-Commerce Application Project create marketstore-front-end_
 Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce website called Kelontongpedia that functions like Tokopedia. We built a Kelontongpedia e-commerce website using (Vite, React, and Node.JS with Tailwind styling Framework).
 
 ## Demo Website
@@ -36,7 +36,7 @@ Run Project
 $ npm run dev
 ```
 
-what can be done with this website
+# what can be done with this website
 - Users can perform operations to create (register), read (see profile), update (update profile) and delete (delete account) on User data.
 - Users who have registered can login.
 - Users can see a list of products (CRUD)
@@ -45,7 +45,7 @@ what can be done with this website
 - Users can add products to the shopping cart (CRUD)
 - Users can order products / checkout in the shopping cart
 
-You Will Learn
+# You Will Learn
 - Tailwind: CSS Grid, Flexbox
 - Vite React.js: Components, Props, Events, Hooks, Router, Axios
 - Context API: Store, Reducers, Actions
