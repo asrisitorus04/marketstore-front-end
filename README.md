@@ -43,6 +43,7 @@ $ npm run dev
 ```
 
 # what can be done with this website
+```sh
 - Users can perform operations to create (register), read (see profile), update (update profile) and delete (delete account) on User data.
 - Users who have registered can login.
 - Users can see a list of products (CRUD)
@@ -50,13 +51,16 @@ $ npm run dev
 - Users can see all the products that are in the database
 - Users can add products to the shopping cart (CRUD)
 - Users can order products / checkout in the shopping cart
+```
 
 # You Will Learn
+```sh
 - Tailwind: CSS Grid, Flexbox
 - Vite React.js: Components, Props, Events, Hooks, Router, Axios
 - Context API: Store, Reducers, Actions
 - Node JS: Web API, Body Parser, File Upload, JWT
 - Development with Github, Vercel, Netlify, Surge
+```
 
 
 
