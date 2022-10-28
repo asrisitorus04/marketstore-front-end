@@ -2,9 +2,9 @@
 
 ####  _E-Commerce Application Project create marketstore-front-end_
 ```sh
-Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce website called Kelontongpedia 
-that functions like Tokopedia. We built a Kelontongpedia e-commerce website using (Vite, React, and Node.JS 
-with Tailwind styling Framework).
+Welcome to the React js tutorial with Vite and Tailwind. We built an e-commerce website 
+called Kelontongpedia that functions like Tokopedia. We built a Kelontongpedia e-commerce 
+website using (Vite, React, and Node.JS with Tailwind styling Framework).
 ```
 
 ## Demo Website Kelontongpedia
